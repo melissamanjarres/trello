@@ -1,6 +1,45 @@
 <h1>Editing Task</h1>
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :duration_time %><br>
+    <%= f.number_field :duration_time %>
+  </div>
+  <div class="field">
+    <%= f.label :starting_date %><br>
+    <%= f.date_select :starting_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  
+<div class="field">
+    <%= f.label :finish %><br>
+    <%= f.check_box :finish %>
+</div>
+<div class="actions">
+    <%= f.submit %>
+</div>  
+<% end %>
 <%= link_to 'Show', @task %> |
 <%= link_to 'Back', tasks_path %>

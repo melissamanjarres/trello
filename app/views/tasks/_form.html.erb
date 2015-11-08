@@ -31,11 +31,10 @@
     <%= f.label :end_date %><br>
     <%= f.date_select :end_date %>
   </div>
-  <div class="field">
-    <%= f.label :finish %><br>
-    <%= f.check_box :finish %>
-  </div>
-  <div class="actions">
+  
+ <%= f.hidden_field :finish, :value => false%>
+ 
+ <div class="actions">
     <%= f.submit %>
-  </div>
+</div>  
 <% end %>
