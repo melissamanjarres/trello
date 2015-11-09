@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<nav class="top-bar" data-topbar role="navigation">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+ <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="#">Ninegag</a></h1>
+          <h1><%= link_to  image_tag("https://pbs.twimg.com/profile_images/549561819010854912/AJonc96g.png", :alt => "Trello", :class => "like")  + " Welcome to Trello" ,  root_path  %></h1>
         </li>
          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -21,7 +27,7 @@
         <ul class="right">
           <% if user_signed_in? %>
           <li>
-            <%= link_to current_user.username, edit_user_registration_path %>
+            <%= link_to current_user.email, edit_user_registration_path %>
           </li>
           <li>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
@@ -39,23 +45,19 @@
     
         <!-- Left Nav Section -->
         <ul class="left">
-          <li>
-            <%= link_to "Tasks", tasks_path  %>
-          </li>
+          <li> Welcome to Trello</li>
         </ul>
+
       </section>
     </nav>
     
     <div class="row">
       <div class="column large-12">
         
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
         
         <%= yield %>
       </div>
     </div>
-  </body>
 
-</body>
+  </body>
 </html>

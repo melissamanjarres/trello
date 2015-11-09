@@ -6,6 +6,9 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+   @tasks_group = @tasks.group_by{ |item| item.finish }
+    
+    
   end
 
   # GET /tasks/1
@@ -26,8 +29,6 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = current_user.tasks.new(task_params)
-    @task.user_id = current_user.id
-    @task.save
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
