@@ -37,8 +37,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up" ,  :class => "button"%>
+    <%= link_to "Log in", new_session_path(resource_name) , :class => "button secondary"%>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+

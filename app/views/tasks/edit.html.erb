@@ -38,8 +38,8 @@
     <%= f.check_box :finish %>
 </div>
 <div class="actions">
-    <%= f.submit %>
+    <%= f.submit"Update", :class => "button " %>
+    <%= link_to 'Back', tasks_path, :class => "button secondary" %>
 </div>  
 <% end %>
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+

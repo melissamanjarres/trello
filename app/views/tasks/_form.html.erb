@@ -35,7 +35,8 @@
   
  <%= f.hidden_field :finish, :value => false%>
  
- <div class="actions">
-    <%= f.submit %>
+ <div  class="actions" >
+    <%= f.submit "Submit", :class => "button" %>
+    <%= link_to 'Cancel', tasks_path , :class => "button secondary" %>
 </div>  
 <% end %>

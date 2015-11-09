@@ -6,9 +6,10 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
-   @tasks_group = @tasks.group_by{ |item| item.finish }
-    
-    
+    @tasks_group =  @tasks.group_by{ |item| item.finish }
+    @complete_tasks =   @tasks.where("finish == ?", true).order(:end_date)
+    @uncomplete_tasks = @tasks.where("finish == ?", false).where("end_date < ?", 1.day.ago).order(:end_date)
+    @doing_tasks = @tasks.where("finish == ?", false).where("end_date > ?", 1.day.ago).order(:end_date)
   end
 
   # GET /tasks/1
