@@ -3,7 +3,6 @@
     
     
       <% if a == false%>
-        
         <h2>Doing</h2>
         <table>
         <thead>
@@ -30,6 +29,8 @@
       </tbody>
       
       <%end%>
+      <% if @uncomplete_tasks.count != 0 %>
+       
       </table>
       <table>
       <thead>
@@ -40,6 +41,7 @@
           <th colspan="3"></th>
         </tr>
    </thead>
+       
        <h2>Uncomplete</h2>
       <% @uncomplete_tasks.each do |task| %>
       
@@ -57,9 +59,10 @@
       
       <%end%>
       </table>
+      <%end%>
       <%else%>
       
-        <h2>Complete</h2>
+        
         <table>
         <thead>
         <tr>
@@ -69,6 +72,7 @@
           <th colspan="3"></th>
         </tr>
    </thead>
+   <h2>Complete</h2>
         <% @complete_tasks.each do |task| %>
       
         <tbody>
