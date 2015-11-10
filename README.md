@@ -22,3 +22,12 @@ The Cloud9 IDE team
 
 Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
 To watch some training videos, visit http://www.youtube.com/user/c9ide
+
+Thanks to C9 because of the workspace, 
+
+To Run this project please do this
+    1. Run bundle
+    2. Migrate database rake db:migrate
+    3. Run your server rails server
+If something goes wrong please go to the development branch or send me a message, Thanks
+
